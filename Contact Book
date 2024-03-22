@@ -12,13 +12,13 @@ def add_contact():
 
 def view_contact_list():
     print("Contacts: ")
-    for idx, contact in enumerate(contact, 1):
-        print(f"{idx}. {contact['name']}: {contact['phone']}")
+    for idx, contact in enumerate(contacts, 1):
+        print(f"{idx}. {contact['name']}: {contact['mobileno']}")
 
 def search_contact(query):
     results = []
     for contact in contacts:
-        if query.lower() in contact['name'].lower() or query in contact['phone']:
+        if query.lower() in contact['name'].lower() or query in contact['mobileno']:
             results.append(contact)
     return results
 
@@ -30,7 +30,7 @@ def update_contact():
             contact = contacts[idx - 1]
             print(f"Updating contact: {contact['name']}")
             contact['name'] = input("Enter updated name: ")
-            contact['phone'] = input("Enter updated phone number: ")
+            contact['mobileno'] = input("Enter updated phone number: ")
             contact['email'] = input("Enter updated email: ")
             contact['address'] = input("Enter updated address: ")
             print("Contact updated successfully!")
@@ -73,7 +73,7 @@ def main():
             if results:
                 print("Search results:")
                 for contact in results:
-                    print(f"Name: {contact['name']}, Phone: {contact['phone']}")
+                    print(f"Name: {contact['name']}, Phone: {contact['mobileno']}")
             else:
                 print("No matching contacts found.")
         elif choice == '4':
